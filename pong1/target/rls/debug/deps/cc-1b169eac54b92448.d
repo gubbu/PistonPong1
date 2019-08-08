@@ -1,0 +1,12 @@
+d:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\rls\debug\deps\cc-1b169eac54b92448.rmeta: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\registry.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\winapi.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\com.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\setup_config.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\windows_registry.rs
+
+d:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\rls\debug\deps\libcc-1b169eac54b92448.rlib: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\registry.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\winapi.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\com.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\setup_config.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\windows_registry.rs
+
+d:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\rls\debug\deps\cc-1b169eac54b92448.d: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\registry.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\winapi.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\com.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\setup_config.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\windows_registry.rs
+
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\lib.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\registry.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\winapi.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\com.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\setup_config.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.38\src\windows_registry.rs:

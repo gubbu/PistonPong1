@@ -1,0 +1,11 @@
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\debug\deps\approx-b3fdbec5441f514d.rmeta: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\abs_diff_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\relative_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\ulps_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\macros.rs
+
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\debug\deps\libapprox-b3fdbec5441f514d.rlib: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\abs_diff_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\relative_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\ulps_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\macros.rs
+
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\debug\deps\approx-b3fdbec5441f514d.d: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\lib.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\abs_diff_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\relative_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\ulps_eq.rs C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\macros.rs
+
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\lib.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\abs_diff_eq.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\relative_eq.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\ulps_eq.rs:
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\approx-0.3.2\src\macros.rs:
