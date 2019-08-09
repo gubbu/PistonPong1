@@ -195,5 +195,6 @@ impl gamewindow::Gametrait for Ponggame{
 }
 
 fn main(){
+//the revert worked yay
     gamewindow::makegame("hello world", [GAMERECT[2] as u32, GAMERECT[3] as u32], 30, 30, &mut Ponggame::newstandart());
 }
