@@ -12,7 +12,7 @@ pub fn b_inside_a(a: &Rect, b: &Rect)->bool{
 }
 
 pub fn rectrectcoll(a: &Rect, b: &Rect)->bool{
-    b_inside_a(a, b)||a_allin_b(a,b)
+    b_inside_a(a, b)||b_inside_a(b, a)
 }
 
 pub fn middlepoint(rect: &Rect)->Vect{

@@ -10,14 +10,15 @@ const PLAYER2: [f64;4] = [
     GAMERECT[0]+GAMERECT[2]-0.01,
     GAMERECT[1]+GAMERECT[3]-0.01];
 
-const BALLACC: f64 = 11.0;
+//if this factor > 0.5 it gets buggy?
+const BALLACC: f64 = 0.5;
 const ACCSELERATION: f64 = 10.0;
-const PIXELSPERSECOND: f64 = 20.0;
+const PIXELSPERSECOND: f64 = 50.0;
 //COLORS
 const BALLCOLOR: [f32;4] = [0.0, 0.0, 1.0, 1.0];
 const PLAYER1C: [f32;4] = [1.0, 0.0, 0.0, 1.0];
 const PLAYER2C: [f32;4] = [1.0, 1.0, 0.0, 1.0];
-const BALLSIZE: f64 = 10.0;
+const BALLSIZE: f64 = 20.0;
 
 enum Dir{
     UP = 0,
@@ -27,7 +28,19 @@ enum Dir{
 
 //stupid random number generator
 fn random(seed: f64)->f64{
-    ((seed*9809.02421).sin()*9992.2342942).fract()
+    ((seed*9809.02421).sin()*9992.2342942).fract().abs()
+}
+
+//task: do not generate to steep angels like pi/2 or 3pi/2
+fn randomstart(seed: f64)->f64{
+    let rand = random(seed);
+    if random(seed) > 0.5{
+        //generate numbers between +- pi/4
+        return rand*std::f64::consts::PI/2.0-std::f64::consts::PI/4.0;
+    }else{
+        //generate numbers between +- pi/4+pi
+        return rand*std::f64::consts::PI/2.0+std::f64::consts::PI*3.0/4.0;
+    }
 }
 
 //#[derive(Debug)]
@@ -44,8 +57,9 @@ impl Player{
         use aabbdump::*;
         self.acc_timer += dts;
         self.playermove(dts);
+        //checking if the player
         if !aabbdump::a_allin_b(&self.rect, &GAMERECT){
-            println!("OH NO {:?}", self.rect);
+            //println!("OH NO {:?}", self.rect);
             self.playermove(-dts);
             self.acc_timer = 0.0;
             self.dir = Dir::STANDING;
@@ -97,7 +111,7 @@ impl Ponggame{
 
     fn wallcoll(&mut self, dts: f64){
         self.balldir[1] *= -1.0;
-        aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer+1.0));
+        aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer*BALLACC+1.0));
         self.current_game_timer = 0.0;        
     }
 
@@ -105,30 +119,68 @@ impl Ponggame{
         self.current_game_timer += dts;
         self.p1.simulateplayer(dts);
         self.p2.simulateplayer(dts);
-        aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer+1.0));
+        aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer*BALLACC+1.0));
         if self.ball[0] < GAMERECT[0]{
-            //println!("P1 scored P1: {} vs. P2: {}", self.p1.score, self.p2.score);
-            self.p1.score += 1;
-            self.on_score();
+            let ballrect = &[self.ball[0]-BALLSIZE*0.5, self.ball[1]-BALLSIZE*0.5, self.ball[0]+BALLSIZE*0.5, self.ball[1]+BALLSIZE*0.5];
+            if aabbdump::rectrectcoll(&self.p1.rect, ballrect){
+                println!("collision detected {:?} but scored ALREADY", ballrect);
+                self.balldir[0] *= -1.0;
+                //1. remove the movement that lead to this collision double:
+                aabbdump::add(&mut self.ball, &self.balldir, 5.0*dts*self.ballspeed*(self.current_game_timer*BALLACC+1.0));
+                self.current_game_timer = 0.0;
+            }else{
+                //println!("P1 scored P1: {} vs. P2: {}", self.p1.score, self.p2.score);
+                self.p2.score += 1;
+                self.on_score();
+            }
+
         }else if self.ball[0] > GAMERECT[2]{
             //println!("P1 scored P2: {} vs. P2: {}", self.p1.score, self.p2.score);
-            self.p2.score += 1;
-            self.on_score();
+            let ballrect = &[self.ball[0]-BALLSIZE*0.5, self.ball[1]-BALLSIZE*0.5, self.ball[0]+BALLSIZE*0.5, self.ball[1]+BALLSIZE*0.5];
+            if aabbdump::rectrectcoll(&self.p2.rect, ballrect){
+                println!("collision detected {:?} but scored ALREADY", ballrect);
+                self.balldir[0] *= -1.0;
+                //1. remove the movement that lead to this collision double:
+                aabbdump::add(&mut self.ball, &self.balldir, 5.0*dts*self.ballspeed*(self.current_game_timer*BALLACC+1.0));
+                self.current_game_timer = 0.0;
+            }else{
+                self.p1.score += 1;
+                self.on_score();
+            }
+
         }else if self.ball[1] < GAMERECT[1] || self.ball[1] > GAMERECT[3]{
             self.wallcoll(dts);
-        }else if aabbdump::rectpointcoll(&self.p1.rect, &self.ball[0], &self.ball[1]) || aabbdump::rectpointcoll(&self.p2.rect, &self.ball[0], &self.ball[1]){
+        }
+        /*
+        else if aabbdump::rectpointcoll(&self.p1.rect, &self.ball[0], &self.ball[1]) || aabbdump::rectpointcoll(&self.p2.rect, &self.ball[0], &self.ball[1]){
+            println!("collision with player detectet! {:?}", self.ball);
             self.balldir[0] *= -1.0;
             //1. remove the movement that lead to this collision:
             aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer+1.0));
+            println!("collision with player detectet! {:?}", self.ball);
+            self.current_game_timer = 0.0;
+            //self.ball[0] = 0.0;
+        }
+        */
+        let ballrect = &[self.ball[0]-BALLSIZE*0.5, self.ball[1]-BALLSIZE*0.5, self.ball[0]+BALLSIZE*0.5, self.ball[1]+BALLSIZE*0.5];
+        if aabbdump::rectrectcoll(&self.p1.rect, ballrect)||aabbdump::rectrectcoll(&self.p2.rect, ballrect){
+            println!("collision detected {:?}", ballrect);
+            self.balldir[0] *= -1.0;
+            //1. remove the movement that lead to this collision double:
+            aabbdump::add(&mut self.ball, &self.balldir, dts*self.ballspeed*(self.current_game_timer*BALLACC+1.0));
             self.current_game_timer = 0.0;
         }
+        
 
     }
 
     fn respawnball(&mut self){
-        self.ballspeed += 0.5;
+        //self.ballspeed +=0.5;
         self.ball = aabbdump::middlepoint(&GAMERECT);
-        self.balldir = aabbdump::fromang(random((self.p1.score/2+self.p2.score) as f64+33.0)*2.0*std::f64::consts::PI, 1.0);
+        //randomstart: generate only numberse between +-pi/4+PI
+        self.balldir = aabbdump::fromang(randomstart((self.p1.score/2+self.p2.score) as f64+33.0), 1.0);
+        //IMPORTSNT reset it
+        self.current_game_timer = 0.0;
     }
 }
 
@@ -147,6 +199,7 @@ impl gamewindow::Gametrait for Ponggame{
         piston_window::clear([0.0, 0.0, 0.0, 0.5], g);
 
         piston_window::rectangle(PLAYER1C,
+        //this is important because piston sees rectangels as [x,y width, height] while i see them als top left and buttom right corner coordinates
          [self.p1.rect[0], self.p1.rect[1], self.p1.rect[2]-self.p1.rect[0], self.p1.rect[3]-self.p1.rect[1]]
         , transform, g);
 
@@ -161,7 +214,7 @@ impl gamewindow::Gametrait for Ponggame{
     fn shouldquit(&self)->bool{return false;}
     fn onquit(&mut self){println!("QUITING!");}
     fn keyboard(&mut self, ispressed: bool, keychar: char){
-        //player 1    
+        //player 1  controls 
         if keychar == 'W'{
             if ispressed{
                 self.p1.dir = Dir::UP;
@@ -190,11 +243,15 @@ impl gamewindow::Gametrait for Ponggame{
             }else{
                 self.p2.dir = Dir::STANDING;
             }
+        }
+        //reset ball pos
+        if keychar == 'R' && !ispressed{
+            self.respawnball();
         }         
     }    
 }
 
 fn main(){
 //the revert worked yay
-    gamewindow::makegame("hello world", [GAMERECT[2] as u32, GAMERECT[3] as u32], 30, 30, &mut Ponggame::newstandart());
+    gamewindow::makegame("BUGGY-PONG", [GAMERECT[2] as u32, GAMERECT[3] as u32], 30, 30, &mut Ponggame::newstandart());
 }

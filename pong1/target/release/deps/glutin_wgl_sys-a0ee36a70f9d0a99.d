@@ -1,0 +1,9 @@
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\deps\glutin_wgl_sys-a0ee36a70f9d0a99.rmeta: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\glutin_wgl_sys-0.1.3\src\lib.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_bindings.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_extra_bindings.rs
+
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\deps\libglutin_wgl_sys-a0ee36a70f9d0a99.rlib: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\glutin_wgl_sys-0.1.3\src\lib.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_bindings.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_extra_bindings.rs
+
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\deps\glutin_wgl_sys-a0ee36a70f9d0a99.d: C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\glutin_wgl_sys-0.1.3\src\lib.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_bindings.rs D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_extra_bindings.rs
+
+C:\Users\Zimmerle\.cargo\registry\src\github.com-1ecc6299db9ec823\glutin_wgl_sys-0.1.3\src\lib.rs:
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_bindings.rs:
+D:\SIMON\Dokumente\Programieren\rust\games\pong\PistonPong1\pong1\target\release\build\glutin_wgl_sys-1d03d5b5aa87cbaa\out/wgl_extra_bindings.rs:
